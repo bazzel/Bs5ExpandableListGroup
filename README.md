@@ -1,8 +1,13 @@
-# Bs5ExpandableListGroup
+# Bootstrap 5 expandable list group
 Short description and motivation.
 
 ## Usage
 How to use my plugin.
+
+## Prerequisites
+
+- [Stimulus](https://github.com/hotwired/stimulus-rails) or [Hotwire](https://github.com/hotwired/hotwire-rails) added to your project
+- [Bootstrap 5](https://getbootstrap.com/) added to your project. There are different ways to do this, but you should use [Yarn](https://getbootstrap.com/docs/5.0/getting-started/download/#rubygems) with Webpacker.
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -12,13 +17,25 @@ gem 'bs5_expandable_list_group'
 ```
 
 And then execute:
+
 ```bash
 $ bundle
 ```
 
-Or install it yourself as:
+Run the following command to setup your project to use Bootstrap 5 expandable list group:
+
 ```bash
-$ gem install bs5_expandable_list_group
+$ bin/rails generate bs5_expandable_list_group:install
+```
+
+This copies the required assets to your application directory:
+
+Stylesheets are copied to `app/javascript/stylesheets`. If needed, you can the following line to your `application.scss` (or alike) to import them:
+
+```ssss
+@import "bootstrap";
+@import "stylesheets/expandable-items";
+@import "stylesheets/stretchable-items";
 ```
 
 ## Contributing

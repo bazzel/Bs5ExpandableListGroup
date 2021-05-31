@@ -1,0 +1,19 @@
+$stretched-item-padding-x: (-1 * $grid-gutter-width) !default;
+$stretched-item-padding-y: (-1 * $stretched-item-padding-x) !default;
+
+.stretchable-item {
+  transition: all .2s;
+
+  &.stretched {
+    margin: $stretched-item-padding-y $stretched-item-padding-x;
+    @extend .shadow-lg;
+  }
+
+  &:not(.stretched) {
+    @extend .shadow-sm;
+
+    &:hover {
+      @extend .shadow;
+    }
+  }
+}

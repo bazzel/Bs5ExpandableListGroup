@@ -1,0 +1,9 @@
+<%= tag.div(class: "list-group-item expandable-item", data: component_data_options) do %>
+  <div class="expandable-item-header">
+    <%= title %>
+    <%= actions %>
+  </div>
+  <%= tag.div(id: target_id, class: "expandable-item-body collapse", data: body_data_options) do %>
+    <%= body %>
+  <% end %>
+<% end %>

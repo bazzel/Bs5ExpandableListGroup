@@ -1,0 +1,12 @@
+<div class="expandable-item-header-actions">
+  <% if variable_actions? %>
+    <%= tag.div(class: "expandable-item-header-actions-collaped") do %>
+      <%= collapsed %>
+    <% end %>
+    <%= tag.div(class: "expandable-item-header-actions-expanded") do %>
+      <%= expanded %>
+    <% end %>
+  <% else %>
+      <%= content %>
+  <% end %>
+</div>
