@@ -2,11 +2,31 @@
 
 [![Build Status](https://travis-ci.org/bazzel/Bs5ExpandableListGroup.svg?branch=main)](https://travis-ci.org/bazzel/Bs5ExpandableListGroup)
 
+**Bootstrap 5 expandable list group** gives you a simple API for creating expandable and stretchable list groups. A bit like [Bootstrap 5](https://getbootstrap.com/)'s [Accordion](https://getbootstrap.com/docs/5.0/components/accordion/), [Collapse](https://getbootstrap.com/docs/5.0/components/collapse/) and [List group](https://getbootstrap.com/docs/5.0/components/list-group/) components combined.
+
 https://user-images.githubusercontent.com/7672/120296188-27170580-c2c8-11eb-936a-a93c16326acb.mp4
 
-## Usage
+## TL;DR
 
-How to use my plugin.
+```erb
+<%= render(Bs5::ExpandableListGroupComponent.new) do |c| %>
+  <% @posts.each do |post| %>
+    <% c.item do |i| %>
+      <%= i.title { post.title } %>
+      <%= i.body  { post.text } %>
+    <% end %>
+  <% end %>
+<% end %>
+```
+
+## Features
+
+- Choose to show a different title when the item is expanded
+- Show one or more actions (buttons, links, icons, ...) when hovering over an item
+- Choose to show a different set of items when the item is expanded
+- When configured as an *accordion* only one item can expanded
+- When configured as *expandable* expanded items are shown a little bit bigger as if they come out a bit.
+
 
 ## Prerequisites
 
@@ -37,13 +57,17 @@ This copies the required assets to your application directory:
 
 Stylesheets are copied to `app/javascript/stylesheets`. If needed, you can the following line to your `application.scss` to import them:
 
-```ssss
+```scss
 @import "bootstrap";
 @import "stylesheets/expandable-items";
 @import "stylesheets/stretchable-items";
 ```
 
 When you use Webpacker for your CSS, you should move these added stylesheets to the proper location (propably somewhere in `app/javascript` and import them in `application.scss` (or alike) located there.
+
+## Usage
+
+
 
 ## Contributing
 
