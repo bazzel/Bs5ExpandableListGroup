@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Bs5::ExpandableListGroupComponent, type: :component do
   subject { render_inline(component) }
 
-  let(:options) { {} }
   let(:component) { described_class.new(options) }
+  let(:options) { {} }
 
   describe 'simple call' do
     it { is_expected.to have_css('div.list-group') }
