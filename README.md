@@ -1,6 +1,6 @@
 # Bootstrap 5 expandable list group
 
-https://github.com/bazzel/Bs5ExpandableListGroup/blob/main/images/example01.mp4
+https://user-images.githubusercontent.com/7672/120296188-27170580-c2c8-11eb-936a-a93c16326acb.mp4
 
 ## Usage
 
