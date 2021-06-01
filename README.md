@@ -131,7 +131,7 @@ To show one set:
     <% end %>
     <% i.actions do %>
       <%= link_to 'Delete', post, method: :delete, class: 'btn btn-sm btn-outline-danger' %>
-	   <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-sm btn-outline-secondary' %>
+      <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-sm btn-outline-secondary' %>
     <% end %>
     <%= i.body { ... } %>
   <% end %>
