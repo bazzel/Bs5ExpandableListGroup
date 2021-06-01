@@ -22,4 +22,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'rails', '~> 6.1.3', '>= 6.1.3.2'
   spec.add_dependency 'view_component', '~> 2.32'
+
+  spec.add_development_dependency 'capybara', '~> 3.35.3'
+  spec.add_development_dependency 'rspec-rails', '~> 5.0.1'
+  spec.add_development_dependency 'sqlite3'
 end
