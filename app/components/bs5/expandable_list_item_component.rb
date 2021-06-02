@@ -18,6 +18,10 @@ module Bs5
 
     private
 
+    def simple_content?
+      title.nil? && body.nil? && actions.nil?
+    end
+
     def target_id
       "expandable-list-item-#{object_id}"
     end

@@ -16,6 +16,16 @@ RSpec.describe Bs5::ExpandableListGroupComponent, type: :component do
     it { is_expected.to have_css('div.list-group.lorem') }
   end
 
+  describe 'with the most simple item' do
+    subject do
+      render_inline(component) do |c|
+        c.item { 'An item' }
+      end
+    end
+
+    it { is_expected.to have_css('div.list-group div.list-group-item', text: 'An item') }
+  end
+
   describe 'with a simple item' do
     subject do
       render_inline(component) do |c|

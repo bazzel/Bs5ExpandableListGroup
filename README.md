@@ -67,7 +67,7 @@ Stylesheets are copied to `app/javascript/stylesheets`. If needed, you can add t
 
 To render a **Bootstrap 5 expandable list group** you use `render(Bs5::ExpandableListGroupComponent.new)` and pass it a block for rendering every list item.
 
-Let's say, in the `index` action of your `PostsController`, you have assigned `@posts` that contains a list of `Post` instances. To render these `@posts` in a **Bootstrap 5 expandable list group**, you put the following code in your `index.html.erb` template:
+Given that you have assigned a list of `Post` instances to `@posts`, to render these `@posts` in a **Bootstrap 5 expandable list group**, you put the following code in your template:
 
 ```erb
 <%= render(Bs5::ExpandableListGroupComponent.new) do |c| %>
@@ -158,6 +158,28 @@ To show a different set on hovering:
     <%= i.body { ... } %>
   <% end %>
 ```
+
+### Omitting the `item` methods
+
+Instead of using the `item`'s methods `title`, `body` and/or `actions` you can just use (HTML-) text as a block.  
+This will render just a [list group item](https://getbootstrap.com/docs/5.0/components/list-group/#basic-example), but will come in handy when you, i.e. show the first 25 items of a longer list and want to present a "Load more" link as last item of the list (for simplicity sake the sample uses a non-working `link_to_next_page` although this is [part of Kaminari](https://github.com/kaminari/kaminari#the-link_to_next_page-and-link_to_previous_page-aliased-to-link_to_prev_page-helper-methods)):
+
+```erb
+<%= render(Bs5::ExpandableListGroupComponent.new) do |c| %>
+  <% @posts.each do |post| %>
+    <% c.item do |i| %>
+      <%= i.title { post.title } %>
+      <%= i.body  { post.text } %>
+    <% end %>
+  <% end %>
+  <% if @companies.next_page %>
+    <% c.item %>
+      <%= link_to_next_page @posts "Load more" %>
+    <% end %>
+  <% end %>
+<% end %>
+```
+
 
 ### Passing options
 
