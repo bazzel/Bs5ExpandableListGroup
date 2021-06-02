@@ -1,6 +1,7 @@
 # Bootstrap 5 expandable list group
 
 [![Build Status](https://travis-ci.org/bazzel/Bs5ExpandableListGroup.svg?branch=main)](https://travis-ci.org/bazzel/Bs5ExpandableListGroup)
+[![Gem Version](https://badge.fury.io/rb/bs5_expandable_list_group.svg)](https://badge.fury.io/rb/bs5_expandable_list_group)
 
 **Bootstrap 5 expandable list group** is a Ruby on Rails engine and gives you a simple API for creating expandable and stretchable list groups. A bit like [Bootstrap 5](https://getbootstrap.com/)'s [Accordion](https://getbootstrap.com/docs/5.0/components/accordion/), [Collapse](https://getbootstrap.com/docs/5.0/components/collapse/) and [List group](https://getbootstrap.com/docs/5.0/components/list-group/) components combined.
 
@@ -172,7 +173,7 @@ This will render just a [list group item](https://getbootstrap.com/docs/5.0/comp
       <%= i.body  { post.text } %>
     <% end %>
   <% end %>
-  <% if @companies.next_page %>
+  <% if @posts.next_page %>
     <% c.item %>
       <%= link_to_next_page @posts "Load more" %>
     <% end %>
