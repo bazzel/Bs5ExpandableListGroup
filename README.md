@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/bazzel/Bs5ExpandableListGroup.svg?branch=main)](https://travis-ci.org/bazzel/Bs5ExpandableListGroup)
 
-**Bootstrap 5 expandable list group** gives you a simple API for creating expandable and stretchable list groups. A bit like [Bootstrap 5](https://getbootstrap.com/)'s [Accordion](https://getbootstrap.com/docs/5.0/components/accordion/), [Collapse](https://getbootstrap.com/docs/5.0/components/collapse/) and [List group](https://getbootstrap.com/docs/5.0/components/list-group/) components combined.
+**Bootstrap 5 expandable list group** is a Ruby on Rails engine and gives you a simple API for creating expandable and stretchable list groups. A bit like [Bootstrap 5](https://getbootstrap.com/)'s [Accordion](https://getbootstrap.com/docs/5.0/components/accordion/), [Collapse](https://getbootstrap.com/docs/5.0/components/collapse/) and [List group](https://getbootstrap.com/docs/5.0/components/list-group/) components combined.
 
 https://user-images.githubusercontent.com/7672/120296188-27170580-c2c8-11eb-936a-a93c16326acb.mp4
 
@@ -55,15 +55,13 @@ $ bin/rails generate bs5_expandable_list_group:install
 
 This copies the required assets to your application directory:
 
-Stylesheets are copied to `app/javascript/stylesheets`. If needed, you can the following line to your `application.scss` to import them:
+Stylesheets are copied to `app/javascript/stylesheets`. If needed, you can add the following line to your `application.scss` to import them:
 
 ```scss
 @import "bootstrap";
 @import "stylesheets/expandable-items";
 @import "stylesheets/stretchable-items";
 ```
-
-When you use Webpacker for your CSS, you should move these added stylesheets to the proper location (propably somewhere in `app/javascript` and import them in `application.scss` (or alike) located there.
 
 ## Usage
 
