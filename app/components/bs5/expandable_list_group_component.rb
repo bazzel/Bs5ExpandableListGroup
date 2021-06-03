@@ -2,8 +2,9 @@
 
 module Bs5
   class ExpandableListGroupComponent < ViewComponent::Base
-    renders_many :items, lambda {
-      ExpandableListItemComponent.new(parent_id: id, stretchable: stretchable?)
+    renders_many :items, lambda { |options = {}|
+      options.merge!(parent_id: id, stretchable: stretchable?)
+      ExpandableListItemComponent.new(**options)
     }
 
     attr_reader :options, :accordion, :stretchable, :tag_name

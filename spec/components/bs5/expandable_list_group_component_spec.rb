@@ -192,7 +192,7 @@ RSpec.describe Bs5::ExpandableListGroupComponent, type: :component do
   end
 
   describe 'with a custom tag' do
-    let(:options) { { tag_name: :turbo_frame } }
+    let(:options) { { tag: :turbo_frame } }
 
     it { is_expected.to have_css('turbo-frame.list-group') }
   end
@@ -208,5 +208,15 @@ RSpec.describe Bs5::ExpandableListGroupComponent, type: :component do
     end
 
     it { is_expected.to have_css('turbo-frame#tray.list-group[loading="lazy"][src="http://example.com"]') }
+  end
+
+  describe 'with a wrapper' do
+    subject do
+      render_inline(component) do |c|
+        c.item(wrapper_html: { tag: :span, class: 'lorem' }) { 'An item' }
+      end
+    end
+
+    it { is_expected.to have_css('div.list-group span.lorem div.list-group-item', text: 'An item') }
   end
 end

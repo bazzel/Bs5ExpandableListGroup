@@ -2,21 +2,31 @@
 
 module Bs5
   class ExpandableListItemComponent < ViewComponent::Base
+    DEFAULT_WRAPPER_TAG = :div
     renders_one :title, lambda {
       ExpandableListItemHeaderTitleComponent.new(target_id: target_id)
     }
     renders_one :actions, ExpandableListItemHeaderActionsComponent
     renders_one :body
 
-    attr_reader :parent_id, :stretchable
+    attr_reader :parent_id, :stretchable, :wrapper_html
 
     def initialize(options = {})
       @parent_id = options.delete(:parent_id)
       @stretchable = options.delete(:stretchable)
+      @wrapper_html = options.delete(:wrapper_html)
       @options = options
     end
 
     private
+
+    def wrapper_html?
+      @wrapper_html.present?
+    end
+
+    def wrapper_tag
+      @wrapper_html.delete(:tag) || DEFAULT_WRAPPER_TAG
+    end
 
     def simple_content?
       title.blank? && body.blank? && actions.blank?
