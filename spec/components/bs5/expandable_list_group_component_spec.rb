@@ -190,4 +190,23 @@ RSpec.describe Bs5::ExpandableListGroupComponent, type: :component do
       is_expected.to have_css('div.list-group .list-group-item[data-controller="stretchable-item"][data-stretchable-item-target="container"][data-stretchable-item-item-class="stretchable-item"][data-stretchable-item-stretched-class="stretched"]')
     }
   end
+
+  describe 'with a custom tag' do
+    let(:options) { { tag_name: :turbo_frame } }
+
+    it { is_expected.to have_css('turbo-frame.list-group') }
+  end
+
+  describe 'with extra attributes' do
+    let(:options) do
+      {
+        tag: :turbo_frame,
+        id: 'tray',
+        loading: :lazy,
+        src: 'http://example.com'
+      }
+    end
+
+    it { is_expected.to have_css('turbo-frame#tray.list-group[loading="lazy"][src="http://example.com"]') }
+  end
 end

@@ -1,4 +1,4 @@
-<%= tag.div(id: accordion? && id, class: component_class) do %>
+<%= tag.send(tag_name, **component_attributes) do %>
   <% items.each do |item| %>
     <%= item %>
   <% end %>

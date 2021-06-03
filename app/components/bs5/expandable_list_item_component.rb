@@ -19,7 +19,7 @@ module Bs5
     private
 
     def simple_content?
-      title.nil? && body.nil? && actions.nil?
+      title.blank? && body.blank? && actions.blank?
     end
 
     def target_id
