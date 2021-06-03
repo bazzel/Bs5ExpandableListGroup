@@ -181,6 +181,27 @@ This will render just a [list group item](https://getbootstrap.com/docs/5.0/comp
 <% end %>
 ```
 
+### Wrap an item in an extra element
+
+Every list item is a `div` with one or more CSS classes and, dependent on block passed, some `data` attributes and is not customizable (yet).  
+However, you can wrap a list item in a extra element by passing a `wrapper_html` option to the `item` method:
+
+```erb
+  ...
+  <% c.item(wrapper_html: { tag: :turbo_frame, id: dom_id(post) }) do |i| %>
+    <%= i.title do |t| %>
+      <%= t.collapsed { 'Collapsed title' } %>
+      <%= t.expanded { 'Expanded title' } %>
+    <% end %>
+    <%= i.body { ... } %>
+  <% end %>
+```
+
+All options passed to the item method are used as HTML attributes of the wrapper, expect for the following:
+
+| name  |  default | description |
+|---|---|---|
+| `tag` | `:div` | A symbol or string of a valid HTML tag that is used for the tag of the wrapper |
 
 ### Passing options
 

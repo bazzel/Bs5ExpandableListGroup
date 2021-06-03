@@ -28,6 +28,14 @@ module Bs5
       @wrapper_html.delete(:tag) || DEFAULT_WRAPPER_TAG
     end
 
+    def wrapper(&block)
+      if wrapper_html?
+        tag.send(wrapper_tag, **wrapper_html, &block)
+      else
+        yield
+      end
+    end
+
     def simple_content?
       title.blank? && body.blank? && actions.blank?
     end
