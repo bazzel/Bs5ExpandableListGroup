@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Arguments passed to the component, are used as HTML attributes for the container element.
+- Define the HTML tag used for the container by passing the `tag` option to the component.
+
 ## [0.2.0] - 2021-06-02
 
 ### Added

@@ -188,11 +188,11 @@ The following options can be passed to `Bs5::ExpandableListGroupComponent.new`:
 
 | name  |  default | description |
 |---|---|---|
+| `tag` | `:div` | A symbol or string of a valid HTML tag that is used for the tag of the list group |
 |  `id` |   | is used to assign an id HTML attribute to the rendered container |
 | `class`  |   | is added to the class attribute of the rendered container |
 |  `accordion` | `false`  | Behaves as an Bootstrap [accordion](https://getbootstrap.com/docs/5.0/components/accordion/) by having only 1 item expanded |
 |  `expandable` | `false`  | Expanded items are shown a little bit bigger as if they come out a bit|
-
 
 Example:
 
@@ -201,6 +201,9 @@ Example:
   ...
 <% end %>
 ```
+
+Other options are used as HTML attributes of the list group element.
+
 
 ## Running tests
 
