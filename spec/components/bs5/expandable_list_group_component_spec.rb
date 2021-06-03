@@ -217,6 +217,6 @@ RSpec.describe Bs5::ExpandableListGroupComponent, type: :component do
       end
     end
 
-    it { is_expected.to have_css('div.list-group span.lorem div.list-group-item', text: 'An item') }
+    it { is_expected.to have_css('div.list-group span.lorem div.list-group-item', text: 'An item', count: 1) }
   end
 end

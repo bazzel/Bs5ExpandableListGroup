@@ -32,7 +32,7 @@ module Bs5
       if wrapper_html?
         tag.send(wrapper_tag, **wrapper_html, &block)
       else
-        yield
+        capture { block.call }
       end
     end
 

@@ -145,11 +145,11 @@ To show a different set on hovering:
       ...
     <% end %>
     <% i.actions do |a| %>
-      <% a.collapsed %>
+      <% a.collapsed do %>
         <%= link_to 'Delete', post, method: :delete, class: 'btn btn-sm btn-outline-danger' %>
         <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-sm btn-outline-secondary' %>
       <% end %>      
-      <% a.expanded %>
+      <% a.expanded do %>
         <%= link_to 'Details', post_path(post), class: 'btn btn-sm btn-outline-secondary' %>
         <%= link_to 'Comment' ... %>
         <%= link_to 'Delete', post, method: :delete, class: 'btn btn-sm btn-outline-danger' %>
@@ -174,7 +174,7 @@ This will render just a [list group item](https://getbootstrap.com/docs/5.0/comp
     <% end %>
   <% end %>
   <% if @posts.next_page %>
-    <% c.item %>
+    <% c.item do %>
       <%= link_to_next_page @posts "Load more" %>
     <% end %>
   <% end %>
