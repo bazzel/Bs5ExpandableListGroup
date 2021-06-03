@@ -10,7 +10,7 @@ https://user-images.githubusercontent.com/7672/120296188-27170580-c2c8-11eb-936a
 ## TL;DR
 
 ```erb
-<%= render(Bs5::ExpandableListGroupComponent.new) do |c| %>
+<%= bs5_expandable_list_group do |c| %>
   <% @posts.each do |post| %>
     <% c.item do |i| %>
       <%= i.title { post.title } %>
@@ -71,7 +71,7 @@ To render a **Bootstrap 5 expandable list group** you use `render(Bs5::Expandabl
 Given that you have assigned a list of `Post` instances to `@posts`, to render these `@posts` in a **Bootstrap 5 expandable list group**, you put the following code in your template:
 
 ```erb
-<%= render(Bs5::ExpandableListGroupComponent.new) do |c| %>
+<%= bs5_expandable_list_group do |c| %>
   <% @posts.each do |post| %>
     <% c.item do |i| %>
       <%= i.title { post.title } %>
@@ -166,7 +166,7 @@ Instead of using the `item`'s methods `title`, `body` and/or `actions` you can j
 This will render just a [list group item](https://getbootstrap.com/docs/5.0/components/list-group/#basic-example), but will come in handy when you, i.e. show the first 25 items of a longer list and want to present a "Load more" link as last item of the list (for simplicity sake the sample uses a non-working `link_to_next_page` although this is [part of Kaminari](https://github.com/kaminari/kaminari#the-link_to_next_page-and-link_to_previous_page-aliased-to-link_to_prev_page-helper-methods)):
 
 ```erb
-<%= render(Bs5::ExpandableListGroupComponent.new) do |c| %>
+<%= bs5_expandable_list_group do |c| %>
   <% @posts.each do |post| %>
     <% c.item do |i| %>
       <%= i.title { post.title } %>
@@ -218,7 +218,7 @@ The following options can be passed to `Bs5::ExpandableListGroupComponent.new`:
 Example:
 
 ```erb
-<%= render(Bs5::ExpandableListGroupComponent.new(accordion: true, expandable: true) do |c| %>
+<%= bs5_expandable_list_group(accordion: true, expandable: true) do |c| %>
   ...
 <% end %>
 ```
