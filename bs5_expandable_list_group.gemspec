@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.authors     = ['Patrick Baselier']
   spec.email       = ['patrick.baselier@gmail.com']
   spec.homepage    = 'https://github.com/bazzel/Bs5ExpandableListGroup'
-  spec.summary     = 'Summary of Bs5ExpandableListGroup.'
-  spec.description = 'Description of Bs5ExpandableListGroup.'
+  spec.summary     = 'Rails engine for creating expandable and stretchable list groups with Bootstrap 5'
+  spec.description = 'Bootstrap 5 expandable list group is a Ruby on Rails engine and gives you a simple API for creating expandable and stretchable list groups. A bit like Bootstrap 5\'s Accordion, Collapse and List group components combined.'
   spec.license     = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
