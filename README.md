@@ -178,7 +178,7 @@ By default, when an item is collapsed, actions only show when you hover your mou
   <% end %>
 ```
 
-### Omitting the `item` methods
+### Omitting the `item`'s methods
 
 Instead of using the `item`'s methods `title`, `body` and/or `actions` you can just use (HTML-) text as a block.  
 This will render just a [list group item](https://getbootstrap.com/docs/5.0/components/list-group/#basic-example), but will come in handy when you, i.e. show the first 25 items of a longer list and want to present a "Load more" link as last item of the list (for simplicity sake the sample uses a non-working `link_to_next_page` although this is [part of Kaminari](https://github.com/kaminari/kaminari#the-link_to_next_page-and-link_to_previous_page-aliased-to-link_to_prev_page-helper-methods)):
@@ -198,6 +198,18 @@ This will render just a [list group item](https://getbootstrap.com/docs/5.0/comp
   <% end %>
 <% end %>
 ```
+
+### Omitting the `item`
+
+Instead of calling the `item` method on the yielded component, when you pass a block, it's rendered wrapped in the container element:
+
+```erb
+<%= bs5_expandable_list_group do %>
+  <%= render @posts %>
+<% end %>
+```
+
+This will give you the same results as wrapping the posts in a `div` with the class **list-group**, but you can still pass other options to the `bs5_expandable_list_group` (although not all of them will be effective).
 
 ### Wrap an item in an extra element
 
@@ -227,11 +239,11 @@ The following options can be passed to `bs5_expandable_list_group `:
 
 | name  |  default | description |
 |---|---|---|
-| `tag` | `:div` | A symbol or string of a valid HTML tag that is used for the tag of the list group |
-|  `id` |   | is used to assign an id HTML attribute to the rendered container |
-| `class`  |   | is added to the class attribute of the rendered container |
-|  `accordion` | `false`  | Behaves as an Bootstrap [accordion](https://getbootstrap.com/docs/5.0/components/accordion/) by having only 1 item expanded |
-|  `expandable` | `false`  | Expanded items are shown a little bit bigger as if they come out a bit|
+| `tag` | `:div` | A symbol or string of a valid HTML tag that is used for the tag of the list group. |
+|  `id` |   | is used to assign an id HTML attribute to the rendered container. |
+| `class`  |   | is added to the class attribute of the rendered container. |
+|  `accordion` | `false`  | Behaves as an Bootstrap [accordion](https://getbootstrap.com/docs/5.0/components/accordion/) by having only 1 item expanded (only effective when used with `item` in the passed block). |
+|  `expandable` | `false`  | Expanded items are shown a little bit bigger as if they come out a bit. |
 
 Example:
 

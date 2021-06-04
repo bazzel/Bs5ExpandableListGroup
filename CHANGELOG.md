@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [UNRELEASED]
 
+### Added
+
+- Instead of calling the `item` method on the yielded component, when you pass a block, it's rendered wrapped in the container element.
+
 ### Changed
 
 - Use CSS `visibility` and positioning properties instead of `display` so the hover behaviour can be bypassed for (some) actions.
