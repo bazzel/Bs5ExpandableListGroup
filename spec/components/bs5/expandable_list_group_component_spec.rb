@@ -63,7 +63,7 @@ RSpec.describe Bs5::ExpandableListGroupComponent, type: :component do
 
     it {
       is_expected.to have_css(
-        'div.list-group div.list-group-item.expandable-item .expandable-item-header .expandable-item-header-title[data-bs-toggle="collapse"][data-bs-target] .expandable-item-header-title-collaped', text: 'Collapsed title'
+        'div.list-group div.list-group-item.expandable-item .expandable-item-header .expandable-item-header-title[data-bs-toggle="collapse"][data-bs-target] .expandable-item-header-title-collapsed', text: 'Collapsed title'
       )
     }
 
@@ -130,7 +130,7 @@ RSpec.describe Bs5::ExpandableListGroupComponent, type: :component do
 
     it {
       is_expected.to have_css(
-        'div.list-group div.list-group-item.expandable-item .expandable-item-header .expandable-item-header-actions .expandable-item-header-actions-collaped', text: 'One action'
+        'div.list-group div.list-group-item.expandable-item .expandable-item-header .expandable-item-header-actions .expandable-item-header-actions-collapsed', text: 'One action'
       )
     }
 

@@ -160,6 +160,24 @@ To show a different set on hovering:
   <% end %>
 ```
 
+#### Bypassing the hover behaviour
+
+By default, when an item is collapsed, actions only show when you hover your mouse over the item. Since we use the `visibility` CSS property for this, you can bypass this behaviour one or more actions by setting its `visibility` property to `visible`. The following example uses the [`visible` utility](https://getbootstrap.com/docs/5.0/utilities/visibility/) from Bootstrap 5, but of course you can also use CSS:
+
+```erb
+  ...
+  <% c.item do |i| %>
+    <%= i.title do |t| %>
+      ...
+    <% end %>
+    <% i.actions do |a| %>
+      <%= link_to 'Not so important link', ... %>
+      <%= link_to 'Very important link', ..., class: 'visible` %>
+    <% end %>      
+    <%= i.body { ... } %>
+  <% end %>
+```
+
 ### Omitting the `item` methods
 
 Instead of using the `item`'s methods `title`, `body` and/or `actions` you can just use (HTML-) text as a block.  

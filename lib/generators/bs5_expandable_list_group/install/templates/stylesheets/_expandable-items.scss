@@ -3,7 +3,14 @@
     position: relative;
     cursor: pointer;
 
-    &-actions {
+    &-title-expanded {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+
+    &-actions-collapsed, &-actions-expanded {
       position: absolute;
       top: 0;
       right: 0;
@@ -12,17 +19,18 @@
 
   &:hover &-header-actions,
   &-header-title[aria-expanded="true"] &-header-title-expanded,
-  &-header-title:not([aria-expanded="true"]) &-header-title-collaped,
+  &-header-title:not([aria-expanded="true"]) &-header-title-collapsed,
   &-header-title[aria-expanded="true"] + &-header-actions,
-  &-header-title[aria-expanded="true"] + &-header-actions &-header-actions-expanded {
-    display: revert;
+  &-header-title[aria-expanded="true"] + &-header-actions &-header-actions-expanded,
+  &-header-actions :focus-within {
+    visibility: visible;
   }
 
   &-header &-header-actions,
-  &-header-title[aria-expanded="true"] &-header-title-collaped,
+  &-header-title[aria-expanded="true"] &-header-title-collapsed,
   &-header-title:not([aria-expanded="true"]) &-header-title-expanded,
   &-header-actions-expanded,
-  &-header-title[aria-expanded="true"] + &-header-actions &-header-actions-collaped {
-    display: none;
+  &-header-title[aria-expanded="true"] + &-header-actions &-header-actions-collapsed {
+    visibility: hidden;
   }
 }
