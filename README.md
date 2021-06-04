@@ -66,7 +66,7 @@ Stylesheets are copied to `app/javascript/stylesheets`. If needed, you can add t
 
 ## Usage
 
-To render a **Bootstrap 5 expandable list group** you use `render(Bs5::ExpandableListGroupComponent.new)` and pass it a block for rendering every list item.
+To render a **Bootstrap 5 expandable list group** you use `bs5_expandable_list_group` and pass it a block for rendering every list item.
 
 Given that you have assigned a list of `Post` instances to `@posts`, to render these `@posts` in a **Bootstrap 5 expandable list group**, you put the following code in your template:
 
@@ -205,7 +205,7 @@ All options passed to the item method are used as HTML attributes of the wrapper
 
 ### Passing options
 
-The following options can be passed to `Bs5::ExpandableListGroupComponent.new`:
+The following options can be passed to `bs5_expandable_list_group `:
 
 | name  |  default | description |
 |---|---|---|
