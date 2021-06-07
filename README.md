@@ -172,7 +172,7 @@ By default, when an item is collapsed, actions only show when you hover your mou
     <% end %>
     <% i.actions do |a| %>
       <%= link_to 'Not so important link', ... %>
-      <%= link_to 'Very important link', ..., class: 'visible` %>
+      <%= link_to 'Very important link', ..., class: 'visible' %>
     <% end %>      
     <%= i.body { ... } %>
   <% end %>
