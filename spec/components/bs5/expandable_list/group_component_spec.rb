@@ -90,7 +90,7 @@ module Bs5
           let(:options) { { stretchable: true } }
 
           it {
-            is_expected.to have_css('div.list-group .list-group-item[data-controller="stretchable-item"][data-stretchable-item-target="container"][data-stretchable-item-item-class="stretchable-item"][data-stretchable-item-stretched-class="stretched"]')
+            is_expected.to have_css('div.list-group .list-group-item[data-controller="stretchable-item"][data-stretchable-item-target="container"][data-stretchable-item-stretched-class="stretched"]')
           }
         end
       end

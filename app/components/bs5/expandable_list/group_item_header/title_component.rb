@@ -7,10 +7,11 @@ module Bs5
         renders_one :collapsed
         renders_one :expanded
 
-        attr_reader :target_id
+        attr_reader :target_id, :is_expanded
 
-        def initialize(target_id:)
+        def initialize(target_id:, expanded: false)
           @target_id = target_id
+          @is_expanded = expanded
         end
 
         private
@@ -18,6 +19,8 @@ module Bs5
         def variable_title?
           collapsed || expanded
         end
+
+        alias expanded? is_expanded
       end
     end
   end

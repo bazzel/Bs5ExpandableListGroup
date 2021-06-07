@@ -1,4 +1,4 @@
-<%= tag.div(class: "expandable-item-header-title", data: { "bs-toggle": :collapse, "bs-target": "##{target_id}" } ) do %>
+<%= tag.div(class: "expandable-item-header-title", data: { "bs-toggle": :collapse, "bs-target": "##{target_id}" }, aria: { expanded: expanded? } ) do %>
   <% if variable_title? %>
     <%= tag.div(class: "expandable-item-header-title-collapsed") do %>
       <%= collapsed %>

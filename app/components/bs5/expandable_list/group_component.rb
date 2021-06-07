@@ -8,13 +8,13 @@ module Bs5
         GroupItemComponent.new(**options)
       }
 
-      attr_reader :options, :accordion, :stretchable, :tag_name
+      attr_reader :options, :is_accordion, :is_stretchable, :tag_name
 
       DEFAULT_TAG_NAME = :div
 
       def initialize(options = {})
-        @accordion = options.delete(:accordion)
-        @stretchable = options.delete(:stretchable)
+        @is_accordion = options.delete(:accordion)
+        @is_stretchable = options.delete(:stretchable)
         @id = options.delete(:id)
         @tag_name = options.delete(:tag) || DEFAULT_TAG_NAME
         @options = options
@@ -27,17 +27,17 @@ module Bs5
       end
 
       def component_class
-        class_names = ['list-group']
-        class_names << @options[:class]
-        class_names
+        ['list-group'].tap do |arr|
+          arr << @options[:class]
+        end
       end
 
       def component_attributes
         options.merge(id: id, class: component_class)
       end
 
-      alias accordion? accordion
-      alias stretchable? stretchable
+      alias accordion? is_accordion
+      alias stretchable? is_stretchable
     end
   end
 end

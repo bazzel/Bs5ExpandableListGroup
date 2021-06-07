@@ -6,16 +6,17 @@ module Bs5
       DEFAULT_WRAPPER_TAG = :div
       DEFAULT_TAG_NAME = :div
       renders_one :title, lambda {
-        GroupItemHeader::TitleComponent.new(target_id: target_id)
+        GroupItemHeader::TitleComponent.new(target_id: target_id, expanded: expanded?)
       }
       renders_one :actions, GroupItemHeader::ActionsComponent
       renders_one :body
 
-      attr_reader :parent_id, :stretchable, :tag_name, :wrapper_html, :options
+      attr_reader :parent_id, :is_stretchable, :is_expanded, :tag_name, :wrapper_html, :options
 
       def initialize(options = {})
         @parent_id = options.delete(:parent_id)
-        @stretchable = options.delete(:stretchable)
+        @is_stretchable = options.delete(:stretchable)
+        @is_expanded = options.delete(:expanded)
         @tag_name = options.delete(:tag) || DEFAULT_TAG_NAME
         @wrapper_html = options.delete(:wrapper_html)
         @options = options
@@ -60,9 +61,17 @@ module Bs5
       end
 
       def component_class
-        class_names = ['list-group-item']
-        class_names << 'expandable-item' unless simple_content?
-        class_names
+        ['list-group-item'].tap do |arr|
+          arr << 'expandable-item' unless simple_content?
+          arr << 'stretchable-item'
+          arr << 'stretched' if !simple_content? && expanded?
+        end
+      end
+
+      def body_class
+        %w[expandable-item-body collapse].tap do |arr|
+          arr << 'show' if expanded?
+        end
       end
 
       def component_attributes
@@ -76,7 +85,6 @@ module Bs5
         {
           controller: stimulus_controller,
           "#{stimulus_controller}-target": 'container',
-          "#{stimulus_controller}-item-class": 'stretchable-item',
           "#{stimulus_controller}-stretched-class": 'stretched'
         }
       end
@@ -85,7 +93,8 @@ module Bs5
         'stretchable-item'
       end
 
-      alias stretchable? stretchable
+      alias stretchable? is_stretchable
+      alias expanded? is_expanded
     end
   end
 end

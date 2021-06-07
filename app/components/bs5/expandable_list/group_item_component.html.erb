@@ -7,7 +7,7 @@
         <%= title %>
         <%= actions %>
       </div>
-      <%= tag.div(id: target_id, class: "expandable-item-body collapse", data: body_data_options) do %>
+      <%= tag.div(id: target_id, class: body_class, data: body_data_options) do %>
         <%= body %>
       <% end %>
     <% end %>

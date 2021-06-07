@@ -272,11 +272,12 @@ The following options can be passed to `bs5_expandable_list_group`:
 | `class`  |   | is added to the class attribute of the rendered container. |
 |  `accordion` | `false`  | Behaves as an Bootstrap [accordion](https://getbootstrap.com/docs/5.0/components/accordion/) by having only 1 item expanded (only effective when used with `item` in the passed block). |
 |  `stretchable` | `false`  | Expanded items are shown a little bit bigger as if they come out a bit. |
+| `expanded` | `false` | Show the item expanded. |
 
 Example:
 
 ```erb
-<%= bs5_expandable_list_group(accordion: true, expandable: true) do |c| %>
+<%= bs5_expandable_list_group(accordion: true, stretchable: true) do |c| %>
   ...
 <% end %>
 ```
