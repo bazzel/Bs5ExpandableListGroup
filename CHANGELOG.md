@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Instead of calling the `item` method on the yielded component, when you pass a block, it's rendered wrapped in the container element.
+- Added the `bs5_expandable_list_group_item` helper to render list items outside a block.
 
 ### Changed
 
@@ -26,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Items with a `wrapper_html` were rendered twice 🤦
+- Items with a `wrapper_html` were rendered twice 🤦.
 
 ## [0.3.0] - 2021-06-03
 

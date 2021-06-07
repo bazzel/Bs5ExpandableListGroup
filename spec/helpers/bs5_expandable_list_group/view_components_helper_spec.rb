@@ -9,5 +9,11 @@ module Bs5ExpandableListGroup
 
       it { is_expected.to have_css('div.list-group') }
     end
+
+    describe '#bs5_expandable_list_group_item' do
+      subject { helper.bs5_expandable_list_group_item }
+
+      it { is_expected.to have_css('div.list-group-item') }
+    end
   end
 end

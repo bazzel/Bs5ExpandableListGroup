@@ -211,6 +211,33 @@ Instead of calling the `item` method on the yielded component, when you pass a b
 
 This will give you the same results as wrapping the posts in a `div` with the class **list-group**, but you can still pass other options to the `bs5_expandable_list_group` (although not all of them will be effective).
 
+### Rendering a single item
+
+By calling the `item` method on the passed component you can render an item. But this can also be achieved outside the block by using the `bs5_expandable_list_group_item` helper method. The following snippet has the same result as other examples, but it does not use the `bs5_expandable_list_group` method:
+
+```erb
+<div id="posts" class="list-group">
+  <% @posts.each do |post| %>
+    <% bs5_expandable_list_group_item(parent_id: 'posts') do |i| %>
+      <%= i.title { post.title } %>
+      <%= i.body  { post.text } %>
+    <% end %>
+  <% end %>
+</end>
+```
+
+An application for rendering a single item is when you want to update an item without doing a full page reload by sending a response that contains only the list item and use JavaScript or (preferably) [Turbo](https://turbo.hotwire.dev/) to update the page.
+
+#### Passing options
+
+The following options can be passed to `bs5_expandable_list_group_item`:
+
+| name  |  default | description |
+|---|---|---|
+| `parent_id` |  | ID of a parent element to add accordion-like behaviour. |
+|  `stretchable` | `false`  | Expanded items are shown a little bit bigger as if they come out a bit. |
+
+
 ### Wrap an item in an extra element
 
 Every list item is a `div` with one or more CSS classes and, dependent on block passed, some `data` attributes and is not customizable (yet).  
@@ -235,7 +262,7 @@ All options passed to the item method are used as HTML attributes of the wrapper
 
 ### Passing options
 
-The following options can be passed to `bs5_expandable_list_group `:
+The following options can be passed to `bs5_expandable_list_group`:
 
 | name  |  default | description |
 |---|---|---|
@@ -243,7 +270,7 @@ The following options can be passed to `bs5_expandable_list_group `:
 |  `id` |   | is used to assign an id HTML attribute to the rendered container. |
 | `class`  |   | is added to the class attribute of the rendered container. |
 |  `accordion` | `false`  | Behaves as an Bootstrap [accordion](https://getbootstrap.com/docs/5.0/components/accordion/) by having only 1 item expanded (only effective when used with `item` in the passed block). |
-|  `expandable` | `false`  | Expanded items are shown a little bit bigger as if they come out a bit. |
+|  `stretchable` | `false`  | Expanded items are shown a little bit bigger as if they come out a bit. |
 
 Example:
 

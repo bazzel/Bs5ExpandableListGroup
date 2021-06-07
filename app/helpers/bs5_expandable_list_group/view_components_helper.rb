@@ -5,5 +5,11 @@ module Bs5ExpandableListGroup
         yield c if block_given?
       end
     end
+
+    def bs5_expandable_list_group_item(*args)
+      render ::Bs5::ExpandableList::GroupItemComponent.new(*args) do |c|
+        yield c if block_given?
+      end
+    end
   end
 end
