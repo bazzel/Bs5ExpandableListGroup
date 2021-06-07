@@ -1,8 +1,8 @@
 <%= wrapper do %>
   <% if simple_content? %>
-    <%= tag.div(content, class: "list-group-item") %>
+    <%= tag.send(tag_name, content, **component_attributes) %>
   <% else %>
-    <%= tag.div(class: "list-group-item expandable-item", data: component_data_options) do %>
+    <%= tag.send(tag_name, **component_attributes) do %>
       <div class="expandable-item-header">
         <%= title %>
         <%= actions %>

@@ -149,6 +149,23 @@ module Bs5
             is_expected.to have_css('.list-group-item .expandable-item-body.collapse[data-bs-parent="#my-id"]')
           }
         end
+
+        describe 'with a custom tag' do
+          let(:options) { { tag: :turbo_frame } }
+
+          it { is_expected.to have_css('turbo-frame.list-group-item') }
+
+          describe 'with extra attributes' do
+            let(:options) do
+              {
+                tag: :turbo_frame,
+                id: 'my-id'
+              }
+            end
+
+            it { is_expected.to have_css('turbo-frame#my-id.list-group-item') }
+          end
+        end
       end
     end
   end

@@ -4,17 +4,19 @@ module Bs5
   module ExpandableList
     class GroupItemComponent < ViewComponent::Base
       DEFAULT_WRAPPER_TAG = :div
+      DEFAULT_TAG_NAME = :div
       renders_one :title, lambda {
         GroupItemHeader::TitleComponent.new(target_id: target_id)
       }
       renders_one :actions, GroupItemHeader::ActionsComponent
       renders_one :body
 
-      attr_reader :parent_id, :stretchable, :wrapper_html
+      attr_reader :parent_id, :stretchable, :tag_name, :wrapper_html, :options
 
       def initialize(options = {})
         @parent_id = options.delete(:parent_id)
         @stretchable = options.delete(:stretchable)
+        @tag_name = options.delete(:tag) || DEFAULT_TAG_NAME
         @wrapper_html = options.delete(:wrapper_html)
         @options = options
       end
@@ -54,6 +56,19 @@ module Bs5
       def component_data_options
         {}.tap do |h|
           h.merge!(stimulus_attributes) if stretchable?
+        end
+      end
+
+      def component_class
+        class_names = ['list-group-item']
+        class_names << 'expandable-item' unless simple_content?
+        class_names
+      end
+
+      def component_attributes
+        options.tap do |h|
+          h[:class] = component_class
+          h[:data] =  component_data_options unless simple_content?
         end
       end
 

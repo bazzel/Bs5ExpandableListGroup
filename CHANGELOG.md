@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Instead of calling the `item` method on the yielded component, when you pass a block, it's rendered wrapped in the container element.
 - Added the `bs5_expandable_list_group_item` helper to render list items outside a block.
+- Define the HTML tag used for the list item by passing the `tag` option.
 
 ### Changed
 

@@ -223,7 +223,7 @@ By calling the `item` method on the passed component you can render an item. But
       <%= i.body  { post.text } %>
     <% end %>
   <% end %>
-</end>
+</div>
 ```
 
 An application for rendering a single item is when you want to update an item without doing a full page reload by sending a response that contains only the list item and use JavaScript or (preferably) [Turbo](https://turbo.hotwire.dev/) to update the page.
@@ -234,13 +234,14 @@ The following options can be passed to `bs5_expandable_list_group_item`:
 
 | name  |  default | description |
 |---|---|---|
+| `tag` | `:div` | A symbol or string of a valid HTML tag that is used for the tag of the list item. |
 | `parent_id` |  | ID of a parent element to add accordion-like behaviour. |
 |  `stretchable` | `false`  | Expanded items are shown a little bit bigger as if they come out a bit. |
 
 
 ### Wrap an item in an extra element
 
-Every list item is a `div` with one or more CSS classes and, dependent on block passed, some `data` attributes and is not customizable (yet).  
+Every list item is a `div` (or the element specified with `tag`) with one or more CSS classes and, dependent on block passed, some `data` attributes.  
 However, you can wrap a list item in a extra element by passing a `wrapper_html` option to the `item` method:
 
 ```erb
